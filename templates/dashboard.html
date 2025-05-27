@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Dashboard - Andy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Andy - Your Personal Assistant</h1>
+        <nav>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="#">Settings</a>
+            <a href="{{ url_for('logout') }}">Logout ({{ user_email }})</a>
+        </nav>
+    </header>
+    <main>
+        <section id="welcome">
+            <h2>Welcome back, {{ user_email }}!</h2>
+        </section>
+
+        <section id="upcoming-events">
+            <h3>Upcoming Calendar Events</h3>
+            <div id="calendar-events-container">
+                <p>Loading events...</p>
+            </div>
+        </section>
+
+        <section id="email-summary">
+            <h3>Recent Emails</h3>
+            <div id="email-summary-container">
+                <p>Loading email summary...</p>
+            </div>
+        </section>
+
+        <section id="recent-activities">
+            <h3>Recent Activities</h3>
+            <div id="recent-activities-container">
+                <p>Loading activities...</p>
+            </div>
+        </section>
+
+        <section id="openai-api-key-section">
+            <h3>OpenAI API Key</h3>
+            <div id="openai-api-key-form-container">
+                <p>Your OpenAI API Key is not set. Please enter it below to enable AI-powered features.</p>
+                <input type="password" id="openai-api-key-input" placeholder="Enter your OpenAI API Key">
+                <button id="save-openai-api-key-btn">Save API Key</button>
+                <p id="openai-api-key-status"></p>
+            </div>
+            <div id="openai-api-key-set-message" style="display: none;">
+                <p>Your OpenAI API Key is configured. You can update it if needed.</p>
+                 <input type="password" id="openai-api-key-input-update" placeholder="Enter new OpenAI API Key">
+                <button id="update-openai-api-key-btn">Update API Key</button>
+                 <p id="openai-api-key-status-update"></p>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Andy Assistant</p>
+    </footer>
+
+    <!-- New Mail Popup (hidden by default) -->
+    <div id="new-mail-popup" class="popup-container" style="display: none;">
+        <div class="popup-content">
+            <button class="popup-close-btn" id="close-new-mail-popup">&times;</button>
+            <h3>New Email Received!</h3>
+            <p><strong>From:</strong> <span id="popup-email-from"></span></p>
+            <p><strong>Subject:</strong> <span id="popup-email-subject"></span></p>
+            <h4>AI Summary:</h4>
+            <p id="popup-email-summary"></p>
+            <h4>Suggested Replies:</h4>
+            <div id="popup-suggested-replies">
+                <!-- Replies will be populated here -->
+            </div>
+            <div class="popup-actions">
+                <button id="popup-action-archive">Archive</button>
+                <button id="popup-action-reply">Reply (Open in Gmail)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Event Popup (hidden by default) -->
+    <div id="upcoming-event-popup" class="popup-container" style="display: none;">
+        <div class="popup-content">
+            <button class="popup-close-btn" id="close-upcoming-event-popup">&times;</button>
+            <h3>Upcoming Calendar Event!</h3>
+            <p><strong>Title:</strong> <span id="popup-event-title"></span></p>
+            <p><strong>Starts:</strong> <span id="popup-event-start-time"></span></p>
+            <p><strong>Ends:</strong> <span id="popup-event-end-time"></span></p>
+            <h4>Attendees:</h4>
+            <ul id="popup-event-attendees">
+                <!-- Attendees will be populated here -->
+            </ul>
+            <div class="popup-actions">
+                <button id="popup-event-action-dismiss">Dismiss</button>
+                <a href="#" id="popup-event-action-join" class="button-link" target="_blank" style="display:none;">Join Meeting</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

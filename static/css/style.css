@@ -1,0 +1,332 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    padding-bottom: 0.5em;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+#calendar-events-container ul, #email-summary-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#calendar-events-container li, #email-summary-container li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+#calendar-events-container li strong, #email-summary-container li strong {
+    font-size: 1.1em;
+}
+
+#calendar-events-container li small, #email-summary-container li small {
+    color: #555;
+    display: block; /* Ensures new line for start/end times */
+    margin-top: 3px;
+}
+
+#calendar-events-container li a, #email-summary-container li a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+#calendar-events-container li a:hover, #email-summary-container li a:hover {
+    text-decoration: underline;
+}
+
+#email-summary-container .snippet {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 95%; /* Ensure it doesn't overflow its container too much */
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    position: relative; /* Changed from fixed to relative for normal flow */
+    bottom: 0;
+    width: 100%;
+    margin-top: 30px; /* Ensure some space before footer */
+}
+
+/* Login page specific */
+body.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.login-page h1 {
+    margin-bottom: 20px;
+}
+
+.login-page button {
+    background-color: #4285F4; /* Google's blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.login-page button:hover {
+    background-color: #357ae8;
+}
+
+/* Popup Styles */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    max-height: 80vh; /* Max height */
+    overflow-y: auto; /* Scroll if content overflows */
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-close-btn:hover {
+    color: #333;
+}
+
+.popup-content h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.popup-content h4 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.popup-content p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+#popup-suggested-replies button {
+    display: block;
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #e9e9e9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.95em;
+}
+
+#popup-suggested-replies button:hover {
+    background-color: #dcdcdc;
+}
+
+.popup-actions {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+}
+
+.popup-actions button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+#popup-action-archive {
+    background-color: #6c757d; /* Grey */
+    color: white;
+}
+#popup-action-archive:hover {
+    background-color: #5a6268;
+}
+
+#popup-action-reply {
+    background-color: #007bff; /* Blue */
+    color: white;
+}
+#popup-action-reply:hover {
+    background-color: #0056b3;
+}
+
+/* Upcoming Event Popup specific styles (can reuse general .popup-container, .popup-content, .popup-close-btn) */
+#popup-event-attendees {
+    list-style-type: none;
+    padding-left: 0;
+    max-height: 100px; /* Example max height */
+    overflow-y: auto; /* Scroll if many attendees */
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+#popup-event-attendees li {
+    padding: 2px 0;
+    color: #444;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #28a745; /* Green for Join button */
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.button-link:hover {
+    background-color: #218838;
+}
+
+#popup-event-action-dismiss {
+    background-color: #6c757d; /* Grey */
+    color: white;
+}
+#popup-event-action-dismiss:hover {
+    background-color: #5a6268;
+}
+
+/* Recent Activities Styles */
+#recent-activities-container {
+    min-height: 100px; /* Ensure it has some height even when empty */
+}
+
+#recent-activities-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#recent-activities-container li {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+#recent-activities-container li .activity-timestamp {
+    display: block;
+    font-size: 0.85em;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+#recent-activities-container li .activity-type {
+    font-weight: bold;
+    color: #333;
+}
+
+#recent-activities-container li .activity-description {
+    color: #555;
+}
+
+#recent-activities-container .loading-message,
+#recent-activities-container .empty-message,
+#recent-activities-container .error-message {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+    font-style: italic;
+}
